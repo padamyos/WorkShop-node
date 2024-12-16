@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
+
   productname: {
     type: String,
     required: true,
@@ -19,9 +20,13 @@ const orderSchema = new Schema({
     type: Number,
     required: true,
   },
+  totleprice: {
+    type: Number,
+    required: true,
+  },
   orderDate: {
     type: Date,
-    default: Date.now,
+    default: () => new Date(Date.now() + 7 * 60 * 60 * 1000), // บวก 7 ชั่วโมง
   },
 });
 

@@ -24,8 +24,12 @@ const productSchema = new Schema(
     
   },
   {
-    timestamps: true,
+    timestamp: { 
+      type: Date, 
+      default: () => new Date(Date.now() + 7 * 60 * 60 * 1000) // บวก 7 ชั่วโมง
+    }
   }
 );
+
 
 module.exports = mongoose.model("Product", productSchema);

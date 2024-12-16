@@ -31,6 +31,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/v1', apiRouter);
 
+// ตั้งค่าเส้นทางสำหรับไฟล์สาธารณะ
+app.use('/public', express.static('public'));
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
